@@ -1,0 +1,78 @@
+.main-container{
+    display: grid;
+    grid-template-columns: 26rem 1fr;
+    grid-template-rows:45rem 1fr ;
+    grid-template-areas: "aside video"
+                         "aside left";
+}
+.main-container .video-container{
+    grid-area: video;
+}
+.main-container .grid-container{
+    grid-area: left;
+}
+.grid-container .video-info-container {
+    display: grid;
+    max-width: 74rem;
+    grid-template-columns: repeat(10,1fr);
+    grid-template-areas:
+        "title title title title title title title . . ."
+        "views views views views . . . . . ."
+        "addp addp share share save save p1 p2 p3 p4"
+        ". . share share save save . . . .";
+}
+/*
+aside
+*/
+.main-container .aside-bar{
+    grid-area: aside;
+    display: flex;
+    flex-direction: column;
+    background-color: #414b5c;
+    padding-left: 1rem;
+    padding-top: 2rem;
+}
+.aside-bar .aside__title{
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+.aside__title span{
+    color: #e94560;
+}
+.aside-bar .aside__category{
+    color: gray;
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+}
+.aside-bar .aside__info-container{
+    display: grid;
+    padding-right: 1rem;
+    grid-template-columns: 45px 1fr;
+    font-size: 1.4rem;
+    gap: 1.5rem;    
+    color: #fcdab7;
+    margin-bottom: 1rem;
+    
+}
+.aside-bar .aside__my-playlist-container{
+    display: grid;
+    padding-right: 1rem;
+    grid-template-columns: 25px 1fr;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    row-gap: 2rem;    
+    color: #fcdab7;
+    margin-bottom: 1rem;
+}
+.aside__info-container p{
+    padding-top: 1rem;
+}
+.aside__info-container img{
+    border-radius: 25px;
+}
+
+
+
+
+
