@@ -6,7 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/styles-platzi-video.css">
     <link rel="stylesheet" href="./css/styles-tablet-platzi-video.css"
-    media="(min-width: 768px)">
+    media="(min-width: 600px)">
     <link rel="stylesheet" href="./css/styles-desktop-platzi-video.css"
     media="(min-width: 1024px)">
 
@@ -15,142 +15,7 @@
   content="Pinterest web page working on mobile-first">
 </head>
 <body>
-  <header class="header-container">
-    <h1 class="header-title">Grid-Layouts</h1>
-    <nav class="nav">
-        <ul class="nav-list">
-            <li><a href="layout-instagram.html">Instragam</a></li>
-            <li><a href="layout-pinteres.html">Pinterest</a></li>
-            <li><a href="layout-fotos.html">NY photos</a></li>
-            <li><a href="layout-platzi-course.html">Platzi course</a></li>
-            <li><a class="active" href="#">platzi-video</a></li>
-        </ul>
-    </nav>
-  </header>
   <main class="main-container">
-    <section class="video-container">
-      <video src="./assets/platzi-video/Pexels Videos 1943413.mp4" controls></video>
-    </section>
-    <section class="grid-container">
-      <section class="video-info-container">
-        <h3 class="video__title font-color-white">
-          New Order - Bizarre Love Triangle
-        </h3>
-        <p class="video__views font-color-white">124,886 vistas</p>
-        <button class="video-add font-color-white"> Add my List</button>
-        <div class="video-share">
-          <a href="">
-            <p class="font-color-white">
-              <span></span>
-              Share
-            </p>
-  
-          </a>
-          
-  
-        </div>
-        <div class="video-save">
-          <a href="">
-            <p class="font-color-white">
-              <span></span>
-              Save
-            </p>
-  
-          </a>
-          
-  
-        </div>
-        
-        <div class="video__electronic">
-          <p class="font-color-white">Electronic</p>
-        </div>
-        <div class="video__rock">
-          <p class="font-color-white">Rock</p>
-        </div>
-        <div class="video__time">
-          <p class="font-color-white">80</p>
-        </div>
-        <div class="video__rela">
-          <p class="font-color-white">Rela</p>
-        </div>
-        
-        
-      </section>
-      <section class="comments-container">
-        <section class="comments-left">
-          <h4 class="comments__title">Comments</h4>
-          <div class="add-comment-container">
-            <figure class="add-comment__img">
-              <img src="./assets/platzi-video/img-user.png" alt="image-user">
-            </figure>
-            <input type="text" class="add-comment__input"
-            placeholder="Leave a comment">
-          </div>
-  
-          <div class="user-comment">
-              <figure class="add-comment__img">
-                <img src="./assets/platzi-video/img-user.png" alt="image-user">
-              </figure>
-            <div class="user-comment__info">
-              <h3>Name user</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam cumque architecto culpa, natus libero fuga eaque tenetur reprehenderit consequatur nulla. Repellendus dolor nesciunt architecto maiores animi sint minus dignissimos illo?</p>
-            </div>
-          </div>
-          <div class="user-comment">
-              <figure class="add-comment__img">
-                <img src="./assets/platzi-video/img-user.png" alt="image-user">
-              </figure>
-            
-            <div class="user-comment__info">
-              <h3>Name user</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
-            </div>
-          </div>
-          <div class="user-comment">
-            
-              <figure class="add-comment__img">
-                <img src="./assets/platzi-video/img-user.png" alt="image-user"></figure>
-            
-            <div class="user-comment__info">
-              <h3>Name user</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
-            </div>
-          </div>
-          <div class="user-comment">
-            
-              <figure class="add-comment__img">
-                <img src="./assets/platzi-video/img-user.png" alt="image-user"></figure>
-            
-            <div class="user-comment__info">
-              <h3>Name user</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
-            </div>
-          </div>
-          <div class="user-comment">
-            
-              <figure class="add-comment__img">
-                <img src="./assets/platzi-video/img-user.png" alt="image-user"></figure>
-        
-            <div class="user-comment__info">
-              <h3>Name user</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
-            </div>
-          </div>
-        </section>
-        <section class="comments-rigth">
-          <h4>Suggest</h4>
-          <figure class="suggest-video">
-            <img src="./assets/platzi-video/pexels-ali-pazani-5627494.jpg" alt="img-videoSuggest">
-            <figcaption>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque </figcaption>
-          </figure>
-          <figure class="suggest-video">
-            <img src="./assets/platzi-video/pexels-luis-del-río-15286.jpg" alt="img-video-suggest">
-            <figcaption>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque </figcaption>
-          </figure>
-        </section>
-      </section>
-    </section>
-    
     <aside class="aside-bar">
       <h1 class="aside__title">
         Platzi <span>Video</span> 
@@ -225,8 +90,54 @@
       
 
     </aside>
+    
+    <div class="home-primary">
+      <div class="primary-search">
+        <form action="" class="search" id="form">
+          <input type="text" name="name" placeholder="Buscar pelicula"/>
+        </form>
+      </div>
+      <figure class="primary-user">
+        <img src="./assets/gorillaz.jpg" alt="user-profile-img"/>
+        <figcaption>Diego Rojas</figcaption>
+      </figure>   
+      <div class="primary-list">
+        <div class="primaryPlaylist">
+          <h3 class="primaryPlaylist-topic">A los golpes</h3>
+          <h2 class="primaryPlaylist-title">Acción</h2>
+          <div class="primaryPlaylist-list" id="action">
+            <img src="src/images/loader.gif" width="50" height="50" alt="">
+          </div>
+        </div>
+        <div class="primaryPlaylist">
+          <h3 class="primaryPlaylist-topic">Para llorar</h3>
+          <h2 class="primaryPlaylist-title">Drama</h2>
+          <div class="primaryPlaylist-list" id="drama">
+            <div class="primaryPlaylistItem">
+              <div class="primaryPlaylistItem-image">
+                <img src="src/images/covers/midnight.jpg">
+              </div>
+              <h4 class="primaryPlaylistItem-title">
+                Titulo de la peli
+              </h4>
+            </div>
+          </div>
+        </div>
+        <div class="primaryPlaylist">
+          <h3 class="primaryPlaylist-topic">Dibujitos animados</h3>
+          <h2 class="primaryPlaylist-title">Animación</h2>
+          <div class="primaryPlaylist-list" id="animation">
+            <img src="src/images/loader.gif" width="50" height="50" alt="">
+          </div>
+        </div>
+      
+      </div>
+      
 
-    </section>
+
+
+
+
   </main>
 
   

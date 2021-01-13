@@ -1,25 +1,8 @@
 .main-container{
     display: grid;
-    grid-template-columns: 26rem 1fr;
-    grid-template-rows:45rem 1fr ;
-    grid-template-areas: "aside video"
-                         "aside left";
-}
-.main-container .video-container{
-    grid-area: video;
-}
-.main-container .grid-container{
-    grid-area: left;
-}
-.grid-container .video-info-container {
-    display: grid;
-    max-width: 74rem;
-    grid-template-columns: repeat(10,1fr);
-    grid-template-areas:
-        "title title title title title title title . . ."
-        "views views views views . . . . . ."
-        "addp addp share share save save p1 p2 p3 p4"
-        ". . share share save save . . . .";
+    grid-template-columns: 32rem 1fr;
+    grid-template-rows:1fr ;
+    grid-template-areas: "aside primary";
 }
 /*
 aside
@@ -33,7 +16,7 @@ aside
     padding-top: 2rem;
 }
 .aside-bar .aside__title{
-    font-size: 3rem;
+    font-size: 5.1rem;
     margin-bottom: 2rem;
 }
 .aside__title span{
