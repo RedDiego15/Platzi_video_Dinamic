@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/styles-platzi-video.css">
-    <link rel="stylesheet" href="./css/styles-tablet-platzi-video.css"
+    <link rel="stylesheet" href="./src/css/styles-platzi-video.css">
+    <link rel="stylesheet" href="./src/css/styles-tablet-platzi-video.css"
     media="(min-width: 600px)">
-    <link rel="stylesheet" href="./css/styles-desktop-platzi-video.css"
+    <link rel="stylesheet" href="./src/css/styles-desktop-platzi-video.css"
     media="(min-width: 1024px)">
 
     <meta
@@ -62,28 +62,28 @@
       </p>
       <div class="aside__info-container">
         <figure>
-          <img src="./assets/platzi-video/img-user.png" alt="img-user">
+          <img src="src/assets/img-user.png" alt="img-user">
         </figure>
         <p>Name user</p>
       </div>
       
       <div class="aside__info-container">
         <figure>
-          <img src="./assets/platzi-video/img-user.png" alt="img-user">
+          <img src="src/assets/img-user.png" alt="img-user">
         </figure>
         <p>Name user</p>
       </div>
       
       <div class="aside__info-container">
         <figure>
-          <img src="./assets/platzi-video/img-user.png" alt="img-user">
+          <img src="src/assets/img-user.png" alt="img-user">
         </figure>
         <p>Name user</p>
       </div>
       
       <div class="aside__info-container">
         <figure>
-          <img src="./assets/platzi-video/img-user.png" alt="img-user">
+          <img src="src/assets/img-user.png" alt="img-user">
         </figure>
         <p>Name user</p>
       </div>
@@ -98,39 +98,93 @@
         </form>
       </div>
       <figure class="primary-user">
-        <img src="./assets/gorillaz.jpg" alt="user-profile-img"/>
+        <img src="./src/assets/gorillaz.jpg" alt="user-profile-img"/>
         <figcaption>Diego Rojas</figcaption>
       </figure>   
       <div class="primary-list">
         <div class="primaryPlaylist">
           <h3 class="primaryPlaylist-topic">A los golpes</h3>
           <h2 class="primaryPlaylist-title">Acción</h2>
-          <div class="primaryPlaylist-list" id="action">
-            <img src="src/images/loader.gif" width="50" height="50" alt="">
+          <div class="primaryPlaylist-list">
+            <div class="indicadores"></div>
+            <div class="contenedor-principal">
+              <button role="button" id="flecha-izquierda" class="flecha" >
+                <i class="fas fa-angle-left"></i>
+              </button>
+
+              <div class="contenedor-carousel" id="action">
+                <img src="./src/assets/loader.gif" alt="loading">
+
+              </div>
+
+              <button role="button" id="flecha-derecha" class="flecha" >
+                <i class="fas fa-angle-right"></i>
+              </button>
+            </div>
+            
           </div>
         </div>
         <div class="primaryPlaylist">
           <h3 class="primaryPlaylist-topic">Para llorar</h3>
           <h2 class="primaryPlaylist-title">Drama</h2>
-          <div class="primaryPlaylist-list" id="drama">
-            <div class="primaryPlaylistItem">
-              <div class="primaryPlaylistItem-image">
-                <img src="src/images/covers/midnight.jpg">
+          <div class="primaryPlaylist-list" >
+            
+            <div class="indicadores"></div>
+            <div class="contenedor-principal">
+              <button role="button" id="flecha-izquierda" class="flecha" >
+                <i class="fas fa-angle-left"></i>
+              </button>
+
+              <div class="contenedor-carousel" id="drama">
+                <img src="./src/assets/loader.gif" alt="loading">
               </div>
-              <h4 class="primaryPlaylistItem-title">
-                Titulo de la peli
-              </h4>
+
+              <button role="button" id="flecha-derecha" class="flecha" >
+                <i class="fas fa-angle-right"></i>
+              </button>
             </div>
+
           </div>
         </div>
         <div class="primaryPlaylist">
           <h3 class="primaryPlaylist-topic">Dibujitos animados</h3>
           <h2 class="primaryPlaylist-title">Animación</h2>
-          <div class="primaryPlaylist-list" id="animation">
-            <img src="src/images/loader.gif" width="50" height="50" alt="">
+          <div class="primaryPlaylist-list" >
+            
+            <div class="indicadores"></div>
+            <div class="contenedor-principal">
+              <button role="button" id="flecha-izquierda" class="flecha" >
+                <i class="fas fa-angle-left"></i>
+              </button>
+
+              <div class="contenedor-carousel" id="animation">
+                <img src="./src/assets/loader.gif" alt="loading">
+              </div>
+
+              <button role="button" id="flecha-derecha" class="flecha" >
+                <i class="fas fa-angle-right"></i>
+              </button>
+            </div>
           </div>
         </div>
       
+      </div>
+
+      <div class="home-featuring" id="featuring">
+
+      </div>
+
+      <div class="overlay" id="overlay">
+      </div>
+      <div class="modal" id="modal">
+        <h1>Título de pelicula</h1>
+        <div class="modal-content">
+          <img src="" alt="" width="170" height="256">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione impedit maiores enim alias ex accusantium quasi cum autem, nam, voluptas tenetur laudantium quod! Odit voluptate illo, voluptas vel quia, quae.</p>
+        </div>
+        <div class="modal-buttons">
+          <button class="modal-btn primary" id="hide-modal">Cerrar Modal</button>
+        </div>
       </div>
       
 
@@ -139,7 +193,7 @@
 
 
   </main>
-
+  <script src="./src/js/home.js"></script>
   
     
 </body>
