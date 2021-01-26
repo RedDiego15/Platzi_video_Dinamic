@@ -2,6 +2,8 @@ const $action_container = document.querySelector('#action');
 const $drama_container = document.querySelector('#drama');
 const $animation_container = document.querySelector('#animation');
 
+const $carousel_container = document.getElementsByClassName('contenedor-carousel');
+
 const $modal = document.getElementById('modal');
 const $overlay = document.getElementById('overlay');
 const $btn_hideModal = document.getElementById('hide-modal');
@@ -12,6 +14,9 @@ const $modal_title = $modal.querySelector('h1');
 const $modal_image = $modal.querySelector('img');
 const $modal_description = $modal.querySelector('p');
 
+const $flechas = document.getElementsByClassName('flecha');
+console.log($flechas);
+
 async function load(){
     const action_list = await load_movieList_by_genre('action');
     const drama_list = await load_movieList_by_genre('drama');
@@ -20,10 +25,8 @@ async function load(){
     console.log(drama_list);
     console.log(animation_list);
     load_movieLists(action_list,drama_list,animation_list);
-    $action_container.removeChild($action_container.firstElementChild)
-    $drama_container.removeChild($drama_container.firstElementChild)
-    $animation_container.removeChild($animation_container.firstElementChild)
-    debugger
+    removeLoadingGif();
+    appearScrollArrows();
 }
 function load_movieLists(action_list,drama_list,animation_list){
     console.log(action_list.data.movies);
@@ -42,9 +45,28 @@ function load_movieLists(action_list,drama_list,animation_list){
         const HTMLString = videoItemTemplate(movie);
         $animation_container.innerHTML += HTMLString;
     });
-    
+}
+function removeLoadingGif(){
+    $action_container.removeChild($action_container.firstElementChild)
+    $drama_container.removeChild($drama_container.firstElementChild)
+    $animation_container.removeChild($animation_container.firstElementChild)
 
-
+}
+function appearScrollArrows(){
+    for(let btn of $flechas){
+        btn.classList.remove('hiden');
+        btn.addEventListener('click',function(){giveScroll(btn)});
+    }
+}
+function giveScroll(btn){
+    for(let fila of $carousel_container){
+        if(btn.classList.contains('flecha-derecha')){
+            fila.scrollLeft +=$carousel_container[0].offsetWidth
+        }else{
+            fila.scrollLeft ==$carousel_container[0].offsetWidth
+        }      
+    }
+     
 }
 
 async function load_movieList_by_genre(genre){
@@ -57,9 +79,9 @@ async function load_movieList_by_genre(genre){
 function videoItemTemplate(movie){
     return(
         `<div class="primaryPlaylistItem">
-            <div class="primaryPlaylistItem-image">
+            <figure class="primaryPlaylistItem-image">
                 <img src=${movie.medium_cover_image}>
-            </div>
+            </figure>
             <h4 class="primaryPlaylistItem-title">
             ${movie.title}
             </h4>

@@ -1,6 +1,6 @@
 .main-container{
     display: grid;
-    grid-template-columns: 32rem 1fr;
+    grid-template-columns: 27rem 1fr;
     grid-template-rows:1fr ;
     grid-template-areas: "aside primary";
 }
@@ -16,7 +16,7 @@ aside
     padding-top: 2rem;
 }
 .aside-bar .aside__title{
-    font-size: 5.1rem;
+    font-size: 4.1rem;
     margin-bottom: 2rem;
 }
 .aside__title span{
@@ -53,6 +53,9 @@ aside
 }
 .aside__info-container img{
     border-radius: 25px;
+}
+.contenedor-carousel .primaryPlaylistItem{
+    min-width: 14.5%;
 }
 
 

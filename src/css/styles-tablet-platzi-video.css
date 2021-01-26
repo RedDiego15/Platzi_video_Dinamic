@@ -1,3 +1,9 @@
+.home-primary{
+    grid-template-columns: 1fr 15rem;
+}
 .primary-user figcaption{
     font-size: 1.6rem;
+}
+.contenedor-carousel .primaryPlaylistItem{
+    min-width: 20%;
 }

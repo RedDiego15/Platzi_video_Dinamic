@@ -9,6 +9,12 @@ html{
     box-sizing: border-box;
     background-color: var(--fondo-pagina);
 }
+.hiden{
+  display: none;
+}
+button{
+  outline: none;
+}
 :root{
     /*COLORES*/
     --font-letters:#fff;
@@ -29,9 +35,9 @@ img{
 }
 .home-primary{
     grid-area: primary;
-    padding: 1rem;
+    padding: 1rem 2rem;
     display: grid;
-    grid-template-columns: 1fr 15rem;
+    grid-template-columns: 1fr 13rem;
     grid-template-rows:7rem 1fr;
     grid-template-areas: "search user"
                          "list   list";
@@ -88,26 +94,88 @@ Primary playList
     font-size: 2.2rem;
     color: var(--fondo-myList);
 }
-.primary-list .primaryPlaylist-list{
-    height: 15rem;
-    display: flex;
+/*-------------- Contenedor title- content --------------*/
+
+.primaryPlaylist .primaryPlaylist__title-content{
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 1rem;
 }
-.primaryPlaylist-list img{
+.indicadores button{
+  background: white;
+  height: 0.03rem;
+  width: 1rem;
+  cursor: pointer;
+  border:none;
+  margin-right: 2px;
+
+}
+.indicadores button:hover,
+.indicadores button.activo{
+  background-color: var(--fondo-myList);
+}
+/*PRIMARY PLAYLIST-LIST*/
+.primary-list .primaryPlaylist-list{
+    position: relative;
+    height: 16rem;
+    display: flex;
+    margin-bottom: 1rem;
+    
+}
+.primaryPlaylist-list .loading-gif{
   width: 11rem;
   height: 13rem;
 }
-
-.primaryPlaylist-list .contenedor-principal{
-  display: flex;
-}
-.contenedor-principal .contenedor-carousel{
+/*--------------- CAROUSEL ----------------------*/
+.primaryPlaylist-list .contenedor-carousel{
   display: flex;
   overflow: hidden;
+  flex-wrap: nowrap;
+  scroll-behavior: smooth;
 }
-.flecha{
-  width: 5rem;
-  height: 5rem;
+.contenedor-carousel .primaryPlaylistItem{
+  min-width: 35%;
+  transition: .3s ease all;
+  box-shadow: 5px 5px 10px rgba(0,0,0, .3);
 }
+.contenedor-carousel .primaryPlaylistItem.hover{
+  transform: scale(1.2);
+  transform-origin: center;
+}
+.primaryPlaylistItem img,
+.primaryPlaylistItem .primaryPlaylistItem-image{
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+
+}
+.primaryPlaylist-list .flecha{
+  position: absolute;
+  height: 45%;
+  width: 2.5rem;
+  top: calc(50% - 30%);
+  border: none;
+	background: rgba(0,0,0,0.3);
+	font-size: 25px;
+  color: white;
+  line-height: 40px;
+  cursor: pointer;
+	z-index: 500;
+	transition: .2s ease all;
+}
+.primaryPlaylist-list .flecha-izquierda{
+  left: 0;
+}
+.primaryPlaylist-list .flecha-derecha{
+  right: 0;
+}
+.primaryPlaylist-list .flecha-izquierda:hover,
+.primaryPlaylist-list .flecha-derecha:hover
+{
+  background: rgb(0, 0, 0,.9);
+}
+
 
 
 /*
