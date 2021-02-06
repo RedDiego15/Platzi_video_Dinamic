@@ -2,6 +2,7 @@ const $action_container = document.querySelector('#action');
 const $drama_container = document.querySelector('#drama');
 const $animation_container = document.querySelector('#animation');
 
+const $primaryPlayList_list = document.getElementsByClassName('primaryPlaylist-list');
 const $carousel_container = document.getElementsByClassName('contenedor-carousel');
 
 const $modal = document.getElementById('modal');
@@ -27,6 +28,7 @@ async function load(){
     load_movieLists(action_list,drama_list,animation_list);
     removeLoadingGif();
     appearScrollArrows();
+    giveScroll();
 }
 function load_movieLists(action_list,drama_list,animation_list){
     console.log(action_list.data.movies);
@@ -55,18 +57,27 @@ function removeLoadingGif(){
 function appearScrollArrows(){
     for(let btn of $flechas){
         btn.classList.remove('hiden');
-        btn.addEventListener('click',function(){giveScroll(btn)});
     }
 }
-function giveScroll(btn){
-    for(let fila of $carousel_container){
-        if(btn.classList.contains('flecha-derecha')){
-            fila.scrollLeft +=$carousel_container[0].offsetWidth
-        }else{
-            fila.scrollLeft ==$carousel_container[0].offsetWidth
-        }      
+
+
+function giveScroll(){
+    for(const carousel of $primaryPlayList_list){
+        const $lista_botones = carousel.querySelectorAll('button')
+        const $contenedor_carousel = carousel.querySelector('div')
+        
+        $lista_botones[0].addEventListener('click',function(){action_btn_scroll.bind($lista_botones[0],$contenedor_carousel)($contenedor_carousel)})
+        $lista_botones[1].addEventListener('click',function(){action_btn_scroll.bind($lista_botones[1])($contenedor_carousel)})   
     }
-     
+
+}
+function action_btn_scroll(carousel){
+    if(this.classList.contains('flecha-derecha')){
+        carousel.scrollLeft += carousel.offsetWidth
+
+    }else{
+        carousel.scrollLeft -= carousel.offsetWidth;  
+    }
 }
 
 async function load_movieList_by_genre(genre){
@@ -82,9 +93,6 @@ function videoItemTemplate(movie){
             <figure class="primaryPlaylistItem-image">
                 <img src=${movie.medium_cover_image}>
             </figure>
-            <h4 class="primaryPlaylistItem-title">
-            ${movie.title}
-            </h4>
         </div>`
 
     );
@@ -93,10 +101,3 @@ function videoItemTemplate(movie){
 
 
 load();
-
-
-
-
-
-
-

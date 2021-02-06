@@ -118,7 +118,7 @@ Primary playList
 /*PRIMARY PLAYLIST-LIST*/
 .primary-list .primaryPlaylist-list{
     position: relative;
-    height: 16rem;
+    height: 19rem;
     display: flex;
     margin-bottom: 1rem;
     
@@ -133,13 +133,17 @@ Primary playList
   overflow: hidden;
   flex-wrap: nowrap;
   scroll-behavior: smooth;
+  align-items: center;
 }
 .contenedor-carousel .primaryPlaylistItem{
-  min-width: 35%;
+  min-width: 33.33%;
+  max-width: 112px;
+  width: 30%;
   transition: .3s ease all;
   box-shadow: 5px 5px 10px rgba(0,0,0, .3);
+  
 }
-.contenedor-carousel .primaryPlaylistItem.hover{
+.contenedor-carousel .primaryPlaylistItem:hover{
   transform: scale(1.2);
   transform-origin: center;
 }

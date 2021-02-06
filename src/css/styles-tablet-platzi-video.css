@@ -6,4 +6,9 @@
 }
 .contenedor-carousel .primaryPlaylistItem{
     min-width: 20%;
+    height: 18rem;
+    
+}
+.primary-list .primaryPlaylist-list{
+    height: 20rem;
 }
