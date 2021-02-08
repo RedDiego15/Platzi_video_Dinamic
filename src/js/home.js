@@ -2,8 +2,9 @@ const $action_container = document.querySelector('#action');
 const $drama_container = document.querySelector('#drama');
 const $animation_container = document.querySelector('#animation');
 
-const $primaryPlayList_list = document.getElementsByClassName('primaryPlaylist-list');
-const $carousel_container = document.getElementsByClassName('contenedor-carousel');
+const $primaryPlayList = document.getElementsByClassName('primaryPlaylist');
+
+
 
 const $modal = document.getElementById('modal');
 const $overlay = document.getElementById('overlay');
@@ -29,6 +30,14 @@ async function load(){
     removeLoadingGif();
     appearScrollArrows();
     giveScroll();
+    pagination();
+}
+
+async function load_movieList_by_genre(genre){
+    const response = await fetch('https://yts.mx/api/v2/list_movies.json?genre='+genre)
+                            .then(res => res.json())
+                            .catch(err => console.log(res));
+    return response;   
 }
 function load_movieLists(action_list,drama_list,animation_list){
     console.log(action_list.data.movies);
@@ -59,14 +68,16 @@ function appearScrollArrows(){
         btn.classList.remove('hiden');
     }
 }
-
-
 function giveScroll(){
-    for(const carousel of $primaryPlayList_list){
+    for(const container of $primaryPlayList){
+        const carousel = container.querySelector('.primaryPlaylist-list')
+        const $indicadores = container.querySelector('.indicadores')
         const $lista_botones = carousel.querySelectorAll('button')
         const $contenedor_carousel = carousel.querySelector('div')
-        
-        $lista_botones[0].addEventListener('click',function(){action_btn_scroll.bind($lista_botones[0],$contenedor_carousel)($contenedor_carousel)})
+
+        debugger
+        pagination(indicadores,$contenedor_carousel);
+        $lista_botones[0].addEventListener('click',function(){action_btn_scroll.bind($lista_botones[0])($contenedor_carousel)})
         $lista_botones[1].addEventListener('click',function(){action_btn_scroll.bind($lista_botones[1])($contenedor_carousel)})   
     }
 
@@ -80,22 +91,46 @@ function action_btn_scroll(carousel){
     }
 }
 
-async function load_movieList_by_genre(genre){
-    const response = await fetch('https://yts.mx/api/v2/list_movies.json?genre='+genre)
-                            .then(res => res.json())
-                            .catch(err => console.log(res));
-    return response;   
-}
-
 function videoItemTemplate(movie){
     return(
         `<div class="primaryPlaylistItem">
             <figure class="primaryPlaylistItem-image">
-                <img src=${movie.medium_cover_image}>
+                <img src=${movie.medium_cover_image} alt = "image movie">
             </figure>
         </div>`
 
     );
+}
+const numeroPaginas = function numberPages(){
+    const $total_peliculas = document.querySelectorAll('#action .primaryPlaylistItem')
+    let numberPages;
+    if(screen.width<600){
+        numberPages=Math.ceil($total_peliculas.length/3)
+        return numberPages;
+    }else{
+        numberPages=Math.ceil($total_peliculas.length/5)
+        debugger
+        return numberPages;
+    }
+}
+function pagination(container_indicator,carousel){
+    const number_Pages = numeroPaginas();
+
+    for(let i=0;i<number_Pages;i++){
+        const indicator = document.createElement('button');
+        if(i==0){
+            indicator.classList.appendChild('activo')
+        }
+        container_indicator.appendChild(indicator)
+        indicator.addEventListener('click', e=>{
+            carousel.scrollLeft= i*offsetWidth
+
+        })
+        debugger
+    }
+    
+    
+
 }
 
 

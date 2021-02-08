@@ -100,11 +100,10 @@ Primary playList
   display: flex;
   justify-content: space-between;
   align-items: end;
-  margin-bottom: 1rem;
 }
 .indicadores button{
   background: white;
-  height: 0.03rem;
+  height: 0.15rem;
   width: 1rem;
   cursor: pointer;
   border:none;
@@ -118,7 +117,7 @@ Primary playList
 /*PRIMARY PLAYLIST-LIST*/
 .primary-list .primaryPlaylist-list{
     position: relative;
-    height: 19rem;
+    height: 16rem;
     display: flex;
     margin-bottom: 1rem;
     
@@ -134,18 +133,28 @@ Primary playList
   flex-wrap: nowrap;
   scroll-behavior: smooth;
   align-items: center;
+  position: relative;
 }
 .contenedor-carousel .primaryPlaylistItem{
   min-width: 33.33%;
   max-width: 112px;
-  width: 30%;
-  transition: .3s ease all;
+  height: 15rem;
+  transition: 450ms all;
   box-shadow: 5px 5px 10px rgba(0,0,0, .3);
+  transform-origin: center left;
   
 }
+.contenedor-carousel:hover .primaryPlaylistItem{
+  opacity: 0.3;
+}
+
 .contenedor-carousel .primaryPlaylistItem:hover{
   transform: scale(1.2);
-  transform-origin: center;
+  opacity: 1;
+}
+
+.primaryPlaylistItem:hover ~ .primaryPlaylistItem {
+  transform: translate3d(4rem, 0, 0);
 }
 .primaryPlaylistItem img,
 .primaryPlaylistItem .primaryPlaylistItem-image{
