@@ -75,19 +75,30 @@ function giveScroll(){
         const $lista_botones = carousel.querySelectorAll('button')
         const $contenedor_carousel = carousel.querySelector('div')
 
+        
+        pagination($indicadores,$contenedor_carousel);
         debugger
-        pagination(indicadores,$contenedor_carousel);
-        $lista_botones[0].addEventListener('click',function(){action_btn_scroll.bind($lista_botones[0])($contenedor_carousel)})
-        $lista_botones[1].addEventListener('click',function(){action_btn_scroll.bind($lista_botones[1])($contenedor_carousel)})   
+        $lista_botones[0].addEventListener('click',function(){action_btn_scroll.bind($lista_botones[0])($contenedor_carousel,$indicadores)})
+        $lista_botones[1].addEventListener('click',function(){action_btn_scroll.bind($lista_botones[1])($contenedor_carousel,$indicadores)})   
     }
 
 }
-function action_btn_scroll(carousel){
+function action_btn_scroll(carousel,$indicadores){
+    const indicadorActivo = $indicadores.querySelector('.activo')
+
     if(this.classList.contains('flecha-derecha')){
         carousel.scrollLeft += carousel.offsetWidth
-
+        if(indicadorActivo.nextSibling){
+            indicadorActivo.classList.remove('activo')
+            indicadorActivo.nextSibling.classList.add('activo')
+        }
+        
     }else{
         carousel.scrollLeft -= carousel.offsetWidth;  
+        if(indicadorActivo.previousSibling){
+            indicadorActivo.classList.remove('activo')
+            indicadorActivo.previousSibling.classList.add('activo')
+        }
     }
 }
 
@@ -119,14 +130,17 @@ function pagination(container_indicator,carousel){
     for(let i=0;i<number_Pages;i++){
         const indicator = document.createElement('button');
         if(i==0){
-            indicator.classList.appendChild('activo')
+            indicator.classList.add('activo')
         }
         container_indicator.appendChild(indicator)
         indicator.addEventListener('click', e=>{
-            carousel.scrollLeft= i*offsetWidth
+            carousel.scrollLeft= i*carousel.offsetWidth
+            container_indicator.querySelector('.activo').classList.remove('activo')
+            e.target.classList.add('activo')
+            
 
         })
-        debugger
+       
     }
     
     

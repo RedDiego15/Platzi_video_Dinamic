@@ -5,10 +5,20 @@
     font-size: 1.6rem;
 }
 .contenedor-carousel .primaryPlaylistItem{
-    min-width: 16.66%;
-    height: 18rem;
-    
+    width: 16.664%;
+    height: 18rem;   
 }
+
+.primaryPlaylistItem:hover ~ .primaryPlaylistItem {
+    transform: translate3d(4rem, 0, 0);
+}
+
 .primary-list .primaryPlaylist-list{
     height: 22rem;
+}
+.contenedor-carousel .primaryPlaylistItem:nth-of-type(3n){
+    transform-origin: center left; 
+}
+.contenedor-carousel .primaryPlaylistItem:nth-of-type(6n){
+    transform-origin: center right; 
 }
