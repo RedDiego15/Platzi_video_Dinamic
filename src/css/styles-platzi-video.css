@@ -47,10 +47,11 @@ img{
 .home-primary .site-title{
   grid-area: site-title;
   align-self: center;
-  color: white;
+  color: black;
   margin: 0 auto;
-  font-size: 2rem;
+  font-size: 3rem;
 }
+
 .site-title span{
   color: #e94560;;
 }
