@@ -4,8 +4,8 @@
 .primary-user figcaption{
     font-size: 1.6rem;
 }
-.contenedor-carousel .primaryPlaylistItem{
-    width: 16.664%;
+.primaryPlaylist-list .contenedor-carousel .primaryPlaylistItem{
+    min-width: 20%;
     height: 18rem;   
 }
 
@@ -16,9 +16,9 @@
 .primary-list .primaryPlaylist-list{
     height: 22rem;
 }
-.contenedor-carousel .primaryPlaylistItem:nth-of-type(3n){
+.contenedor-carousel .primaryPlaylistItem:nth-of-type(4n){
     transform-origin: center left; 
 }
-.contenedor-carousel .primaryPlaylistItem:nth-of-type(6n){
+.contenedor-carousel .primaryPlaylistItem:nth-of-type(5n){
     transform-origin: center right; 
 }

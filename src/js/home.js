@@ -30,7 +30,6 @@ async function load(){
     removeLoadingGif();
     appearScrollArrows();
     giveScroll();
-    pagination();
 }
 
 async function load_movieList_by_genre(genre){
@@ -116,7 +115,7 @@ const numeroPaginas = function numberPages(){
     const $total_peliculas = document.querySelectorAll('#action .primaryPlaylistItem')
     let numberPages;
     if(screen.width<600){
-        numberPages=Math.ceil($total_peliculas.length/3)
+        numberPages=Math.ceil($total_peliculas.length/4)
         return numberPages;
     }else{
         numberPages=Math.ceil($total_peliculas.length/5)

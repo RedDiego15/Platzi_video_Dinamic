@@ -141,14 +141,14 @@ Primary playList
   position: relative;
 }
 .primaryPlaylist-list .contenedor-carousel .primaryPlaylistItem{
-  width: 33.33%;
+  min-width: 25%;
   height: 15rem;
   transition: 450ms all;
   box-shadow: 5px 5px 10px rgba(0,0,0, .3);
   transform-origin: center left; 
   
 }
-.contenedor-carousel .primaryPlaylistItem:nth-of-type(3n){
+.contenedor-carousel .primaryPlaylistItem:nth-of-type(4n){
   transform-origin: center right; 
 }
 
