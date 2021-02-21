@@ -1,15 +1,21 @@
+const BASE_API = 'https://yts.mx/api/v2/list_movies.json?'
+
 const $action_container = document.querySelector('#action');
 const $drama_container = document.querySelector('#drama');
 const $animation_container = document.querySelector('#animation');
 
 const $primaryPlayList = document.getElementsByClassName('primaryPlaylist');
-
+const $homePrimary = document.querySelector('.home-primary')
 const $modal = document.getElementById('modal');
 const $overlay = document.getElementById('overlay');
 const $btn_hideModal = document.getElementById('hide-modal');
 
 const $featuring_container = document.getElementById('featuring');
 const $form = document.getElementById('form');
+const $btn_buscar = document.getElementById('btn-buscar')
+
+const $featuring = document.getElementById('featuring')
+
 const $modal_title = $modal.querySelector('h1');
 const $modal_image = $modal.querySelector('img');
 const $modal_description = $modal.querySelector('p');
@@ -17,8 +23,29 @@ const $modal_description = $modal.querySelector('p');
 const $flechas = document.getElementsByClassName('flecha');
 console.log($flechas);
 
+$form.addEventListener('submit',async (event)=>{
+    /*para evitar que la pagina se 
+    recarge en cada momento*/
+    event.preventDefault()
+    let data = new FormData($form)
+    const response =  await getMovie(data.get('name'))
+    const stringHtml = featuringTemplate(response);
+    const featuringElement = createTemplate(stringHtml)
+    $homePrimary.appendChild(featuringElement)
+
+    
+})
+
+async function getMovie(movieName){
+    const response =  await fetch(`${BASE_API}limit=1&query_term=${movieName}`)
+                        .then(res => res.json())
+                        .catch(err => console.log(res))
+    return response;
+
+
+}
+
 async function load(){
-    createSearchEvent()
     const action_list = await load_movieList_by_genre('action');
     const drama_list = await load_movieList_by_genre('drama');
     const animation_list = await load_movieList_by_genre('animation');
@@ -31,20 +58,35 @@ async function load(){
     giveScroll();
 }
 
-function createSearchEvent(){
-    $form.addEventListener('submit',(event)=>{
-         /*para evitar que la pagina se 
-         recarge en cada momento*/
-         event.preventDefault()
-    })
+
+
+function featuringTemplate(movie){
+    return(`
+    <div class="featuring" id="featuring">
+        <div class="featuring-info">
+          <figure>
+            <img src="${movie.data.movies[0].medium_cover_image}" alt="movie image">
+          </figure>
+          <div class="info-movie">
+            <h3>Pelicula Encontrada</h3>
+            <h4 class="movie-title">${movie.data.movies[0].title}</h4>
+          </div>  
+        </div>
+
+    `)
+
 }
 
+
+
+
 async function load_movieList_by_genre(genre){
-    const response = await fetch('https://yts.mx/api/v2/list_movies.json?genre='+genre)
+    const response = await fetch(`${BASE_API}genre=${genre}`)
                             .then(res => res.json())
                             .catch(err => console.log(res));
     return response;   
 }
+
 function load_movieLists(action_list,drama_list,animation_list){
     addTemplate(action_list,$action_container);
     addTemplate(drama_list,$drama_container);
